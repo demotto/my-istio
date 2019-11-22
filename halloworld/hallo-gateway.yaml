@@ -29,7 +29,7 @@ spec:
     - uri:
         exact: /hello/bbb
     - uri:
-        exact: /hello
+        exact: /health
     route:
     - destination:
         host: halloworld
