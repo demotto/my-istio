@@ -18,17 +18,18 @@ apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: halloworld
+  namespace: hyf
 spec:
   hosts:
-    - "*"
+  - "*"
   gateways:
-    - halloworld-gateway
+  - halloworld-gateway
   http:
-    - match:
-        - uri:
-exact: /hello
-route:
-- destination:
-host: halloworld
-port:
-  number: 5000
+  - match:
+    - uri:
+        exact: /hello
+    route:
+    - destination:
+        host: halloworld
+        port:
+          number: 5000
