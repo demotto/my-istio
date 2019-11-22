@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: halloworld
-        image: demotto/istio-hallo:v1.0
+        image: demotto/istio-hallo:v1.0.0
         resources:
           requests:
             cpu: "100m"
