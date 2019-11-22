@@ -26,9 +26,9 @@ spec:
   http:
     - match:
         - uri:
-exact: /hallo
+exact: /hello
 route:
 - destination:
-host: hallo
+host: halloworld
 port:
   number: 5000
