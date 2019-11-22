@@ -1,6 +1,6 @@
 #!/bin/bash -e
 image_name="demotto/istio-hallo"
-image_tag="v1.0"
+image_tag="v1.0.0"
 full_image_name=${image_name}:${image_tag}
 
 cd "$(dirname "$0")"
