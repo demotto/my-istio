@@ -26,10 +26,12 @@ spec:
   - halloworld-gateway
   http:
   - match:
-    - uri:
-        exact: /hello/bbb
-    - uri:
-        exact: /health
+#    - uri:
+#        exact: /hello/bbb
+#    - uri:
+#        exact: /health
+      - uri:
+          prefix: /hello
     route:
     - destination:
         host: halloworld
