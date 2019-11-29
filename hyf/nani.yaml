@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: halloworld
+  labels:
+    app: halloworld
+spec:
+  ports:
+  - port: 5000
+    name: http
+  selector:
+    app: halloworld
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hallo
+  namespace: hyf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: halloworld
+  template:
+    metadata:
+      labels:
+        app: halloworld
+    spec:
+      containers:
+      - name: nani
+        image: demotto/istio-hallo:v1.0.1
+        resources:
+          requests:
+            cpu: "100m"
+        imagePullPolicy: IfNotPresent #Always
+        ports:
+        - containerPort: 5000

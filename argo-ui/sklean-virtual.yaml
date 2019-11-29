@@ -1,0 +1,35 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  creationTimestamp: "2019-11-28T09:43:19Z"
+  generation: 1
+  name: iris-sklearn-http
+  namespace: default
+  ownerReferences:
+  - apiVersion: machinelearning.seldon.io/v1alpha2
+    blockOwnerDeletion: true
+    controller: true
+    kind: SeldonDeployment
+    name: sklearn
+    uid: 180e3bdb-4b79-433d-95f4-02ac9926507f
+  resourceVersion: "6376532"
+  selfLink: /apis/networking.istio.io/v1alpha3/namespaces/default/virtualservices/iris-sklearn-http
+  uid: 3ea15a12-8362-4f4e-8ab2-975777b31ef1
+spec:
+  gateways:
+  - seldon-gateway
+  hosts:
+  - '*'
+  http:
+  - match:
+    - uri:
+        prefix: /seldon/default/sklearn/
+    rewrite:
+      uri: /
+    route:
+    - destination:
+        host: sklearn-iris-default
+        port:
+          number: 8000
+        subset: default
+      weight: 0

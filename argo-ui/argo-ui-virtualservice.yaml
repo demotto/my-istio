@@ -1,0 +1,26 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  creationTimestamp: "2019-10-27T02:57:08Z"
+  generation: 1
+  name: argo-ui
+  namespace: kubeflow
+  resourceVersion: "56505"
+  selfLink: /apis/networking.istio.io/v1alpha3/namespaces/kubeflow/virtualservices/argo-ui
+  uid: 89b34715-4308-44c1-8451-df8a87762c5d
+spec:
+  gateways:
+  - kubeflow-gateway
+  hosts:
+  - '*'
+  http:
+  - match:
+    - uri:
+        prefix: /argo/
+    rewrite:
+      uri: /
+    route:
+    - destination:
+        host: argo-ui.kubeflow.svc.cluster.local
+        port:
+          number: 80
