@@ -26,8 +26,8 @@ spec:
   - match:
       - uri:
           prefix: /mia/
-      rewrite:
-        uri: /
+    rewrite:
+      uri: /
     route:
     - destination:
         host: halloworld
